@@ -1,1 +1,1 @@
-# novi-plugin-lightgallery
+# Novi Light Gallery plugin
