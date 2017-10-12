@@ -1,6 +1,6 @@
 {
   "name": "@novi_dev/novi-plugin-lightgallery",
-  "version": "1.0.5",
+  "version": "1.0.0",
   "description": "Novi Lightgallery plugin",
   "main": "dist/novi-plugin-lightgallery.js",
   "repository": {

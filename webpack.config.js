@@ -5,7 +5,7 @@ UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
   entry: "./src/novi-light-gallery.jsx",
   output: {
-    filename: "./dist/novi-plugin-light-gallery.js",
+    filename: "../novi-builder/build/plugins/novi-plugin-light-gallery.js",
     libraryTarget: 'commonjs2',
     library: 'novi-plugin-light-gallery'
   },
