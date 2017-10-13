@@ -1,6 +1,7 @@
 const React = novi.react.React;
 const Icons = novi.ui.icons;
 const lodash = novi.utils.lodash;
+import * as ExcerptFunction from "../ExcerptFunction";
 import Body from "./Body";
 
 const EditorItem = {
@@ -12,6 +13,7 @@ const EditorItem = {
     header: [Icons.ICON_PICTURES, <span>Gallery Settings</span>],
     onSubmit: onClick,
     width: 360,
+    excerpt: ExcerptFunction.validGallery,
     height: 180
 };
 

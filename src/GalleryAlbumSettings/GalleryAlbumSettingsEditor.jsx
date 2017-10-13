@@ -1,34 +1,25 @@
 const React = novi.react.React;
 const Icons = novi.ui.icons;
-const modal = novi.modal;
-const acceptImages = novi.types.images;
+import * as ExcerptFunction from "../ExcerptFunction";
+import Body from "./Body";
 
 const EditorItem = {
-    trigger: Icons.ICON_BG_IMAGE,
-    tooltip: "Replace Image",
+    trigger: Icons.ICON_FACE_SAD,
+    tooltip: "Album Settings",
     closeIcon: "submit",
-    title: "Replace Image",
-    onTriggerClick: onClick
+    title: "Album Settings",
+    submitOnBlur: false,
+    excerpt: ExcerptFunction.validAlbum,
+    body: [<Body/>],
+    header: [Icons.ICON_FACE_SAD, <span>Album Settings</span>],
+    onSubmit: onClick,
+    width: 508,
+    height: 300
 };
 
 export default EditorItem;
 
 
 function onClick(element) {
-    modal.fileUpload({
-        path: novi.media.directory,
-        accept: acceptImages,
-        messages: {
-            submit: "Upload Background Image",
-            title: "Upload an image",
-            body: 'Click on "Choose File" to upload your image.'
-        },
-        onSubmitClick: onSubmitClick.bind(this, element)
-    })
-}
 
-function onSubmitClick(element, path) {
-    let correctPath = path.replace(/['|"]/g, ``);
-    novi.element.setInlineStyle(element, "backgroundImage", `url(${correctPath})`);
-    element.style.backgroundImage = `url(${correctPath})`;
 }

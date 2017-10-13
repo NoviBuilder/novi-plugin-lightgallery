@@ -1,17 +1,11 @@
 
-export function validBgImage(element){
+export function validAlbum(element){
     if (!element) return false;
-
-    if ( !element.style.backgroundImage ) return true;
-
-    // check for dynamic script added bg-image
-    return !checkDynamicBg(element);
-
+    return novi.element.getAttribute(element, "data-lightgallery") === "dynamic"
 }
-
-function checkDynamicBg(element){
-    let staticStyle, dynamicStyle;
-    staticStyle = novi.element.getInlineStyle(element, "backgroundImage");
-    dynamicStyle = element.style.backgroundImage;
-    return ((staticStyle !== dynamicStyle) && dynamicStyle.indexOf(staticStyle) > -1);
+export function validGallery(element){
+    if (!element) return false;
+    let dynamic = novi.element.getAttribute(element, "data-lightgallery") === "dynamic";
+    let group = novi.element.getAttribute(element, "data-lightgallery") === "group";
+    return (dynamic || group);
 }

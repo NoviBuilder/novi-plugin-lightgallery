@@ -1,5 +1,4 @@
 const React = novi.react.React;
-import * as ExcerptFunction from "./ExcerptFunction";
 import GallerySettingsEditor from "./GallerySettings/GallerySettingsEditor";
 import GalleryItemSettingsEditor from "./GalleryItemSettings/GalleryItemSettingsEditor";
 import GalleryAlbumSettingsEditor from "./GalleryAlbumSettings/GalleryAlbumSettingsEditor";
@@ -17,8 +16,7 @@ const Plugin = {
     ui: {
         editor: [GalleryAlbumSettingsEditor, GalleryItemSettingsEditor, GallerySettingsEditor],
         settings: <Settings />,
-    },
-    // excerpt : ExcerptFunction.validBgImage
+    }
 };
 
 novi.plugins.register(Plugin);
