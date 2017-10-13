@@ -15,7 +15,8 @@ const Plugin = {
         childQuerySelector: '[data-lightgallery="item"]'
     },
     ui: {
-        editor: [GalleryAlbumSettingsEditor, GalleryItemSettingsEditor, GallerySettingsEditor],
+        // editor: [GalleryAlbumSettingsEditor, GalleryItemSettingsEditor, GallerySettingsEditor],
+        editor: [GalleryItemSettingsEditor],
         settings: <Settings />,
     },
     // excerpt : ExcerptFunction.validBgImage
