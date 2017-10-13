@@ -1,34 +1,39 @@
 const React = novi.react.React;
 const Icons = novi.ui.icons;
-const modal = novi.modal;
-const acceptImages = novi.types.images;
+const lodash = novi.utils.lodash;
+import Body from "./Body";
 
 const EditorItem = {
-    trigger: Icons.ICON_BG_IMAGE,
-    tooltip: "Replace Image",
+    trigger: Icons.ICON_PICTURES,
+    tooltip: "Gallery Settings",
     closeIcon: "submit",
-    title: "Replace Image",
-    onTriggerClick: onClick
+    title: "Gallery Settings",
+    body: [<Body/>],
+    header: [Icons.ICON_PICTURES, <span>Gallery Settings</span>],
+    onSubmit: onClick,
+    width: 360,
+    height: 180
 };
 
 export default EditorItem;
 
 
-function onClick(element) {
-    modal.fileUpload({
-        path: novi.media.directory,
-        accept: acceptImages,
-        messages: {
-            submit: "Upload Background Image",
-            title: "Upload an image",
-            body: 'Click on "Choose File" to upload your image.'
-        },
-        onSubmitClick: onSubmitClick.bind(this, element)
-    })
-}
+function onClick(headerState, bodyState) {
+    let state = bodyState[0];
+    if (state.loop !== state.initValue.loop){
+        novi.element.setAttribute(state.element, "data-lg-loop", state.loop)
+    }
+    if (state.thumbnail !== state.initValue.thumbnail){
+        novi.element.setAttribute(state.element, "data-lg-thumbnail", state.thumbnail)
+    }
+    if (state.autoplay !== state.initValue.autoplay){
+        novi.element.setAttribute(state.element, "data-lg-autoplay", state.autoplay)
+    }
+    if (state.autoplayTime !== state.initValue.autoplayTime){
+        novi.element.setAttribute(state.element, "data-lg-autoplay-delay", state.autoplayTime * 1000)
+    }
+    if (!lodash.isEqual(state.animation, state.initValue.animation)){
+        novi.element.setAttribute(state.element, "data-lg-animation", state.animation.value)
+    }
 
-function onSubmitClick(element, path) {
-    let correctPath = path.replace(/['|"]/g, ``);
-    novi.element.setInlineStyle(element, "backgroundImage", `url(${correctPath})`);
-    element.style.backgroundImage = `url(${correctPath})`;
 }
