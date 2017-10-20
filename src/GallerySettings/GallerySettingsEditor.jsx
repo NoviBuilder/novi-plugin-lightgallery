@@ -14,7 +14,8 @@ const EditorItem = {
     onSubmit: onClick,
     width: 360,
     excerpt: ExcerptFunction.validGallery,
-    height: 180
+    height: 180,
+    collapsed: true
 };
 
 export default EditorItem;
@@ -37,5 +38,4 @@ function onClick(headerState, bodyState) {
     if (!lodash.isEqual(state.animation, state.initValue.animation)){
         novi.element.setAttribute(state.element, "data-lg-animation", state.animation.value)
     }
-
 }

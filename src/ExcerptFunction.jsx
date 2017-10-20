@@ -1,11 +1,22 @@
 
 export function validAlbum(element){
     if (!element) return false;
-    return novi.element.getAttribute(element, "data-lightgallery") === "dynamic"
+    let albumSelector = novi.plugins.settings.get('novi-plugin-light-gallery').albumQuerySelector;
+    return element.matches(albumSelector);
 }
 export function validGallery(element){
     if (!element) return false;
-    let dynamic = novi.element.getAttribute(element, "data-lightgallery") === "dynamic";
-    let group = novi.element.getAttribute(element, "data-lightgallery") === "group";
+    let albumSelector = novi.plugins.settings.get('novi-plugin-light-gallery').albumQuerySelector;
+    let groupSelector = novi.plugins.settings.get('novi-plugin-light-gallery').groupQuerySelector;
+    let dynamic = element.matches(albumSelector);
+    let group = element.matches(groupSelector);
     return (dynamic || group);
 }
+
+export function validItem(element, childElement){
+    if (childElement) return true;
+    let itemSelector = novi.plugins.settings.get('novi-plugin-light-gallery').childQuerySelector;
+    return element.matches(itemSelector);
+}
+
+

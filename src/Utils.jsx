@@ -1,8 +1,8 @@
 export function getLinkType(link){
     let type;
     if (!link) return {type: "url", id: null};
-    if (/\.(svg|jpeg|jpg|gif|png)$/.test(link)) type = 'image';
-    else if (/\.(mp4|webm|ogg)$/.test(link)) type = 'video';
+    if (/[^\s]+\.(svg|jpeg|jpg|gif|png)\s*$/.test(link)) type = 'image';
+    else if (/[^\s]+\.(mp4|webm|ogg)\s*$/.test(link)) type = 'video';
     else {
 
         let result = parseVideo(link);

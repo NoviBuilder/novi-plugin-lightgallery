@@ -10,8 +10,10 @@ const Plugin = {
     description: "Novi Light Gallery description",
     version: "1.0.0",
     defaults: {
-        querySelector: '[data-lightgallery="group"],[data-lightgallery="dynamic"]',
-        childQuerySelector: '[data-lightgallery="item"]'
+        groupQuerySelector: '[data-lightgallery="group"]',
+        albumQuerySelector: '[data-lightgallery="dynamic"]',
+        childQuerySelector: '[data-lightgallery="item"]',
+        querySelector: '[data-lightgallery="group"], [data-lightgallery="dynamic"], [data-lightgallery="item"]'
     },
     ui: {
         editor: [GalleryAlbumSettingsEditor, GalleryItemSettingsEditor, GallerySettingsEditor],

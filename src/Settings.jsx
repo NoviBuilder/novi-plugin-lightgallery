@@ -7,8 +7,7 @@ export default class ImageSettings extends Component {
     constructor(props) {
         super();
         this.state = {
-            settings: props.settings,
-            childQuerySelector: props.childQuerySelector
+            settings: props.settings
         };
         this.saveSettings = this.saveSettings.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -16,24 +15,30 @@ export default class ImageSettings extends Component {
 
     componentWillReceiveProps(props) {
         this.setState({
-            settings: props.settings,
-            childQuerySelector: props.childQuerySelector
+            settings: props.settings
         })
     }
 
     render() {
         return (
             <div>
-                <span style={{letterSpacing: "0,0462em"}}>Background Image Plugin</span>
-                <div style={{fontSize: 13, color: "#6E778A", marginTop: 21}}>Apply this plugin to elements which are
+                <span style={{letterSpacing: "0,0462em"}}>Light Gallery Plugin</span>
+                <div style={{fontSize: 13, color: "#6E778A", marginTop: 21}}>Apply this plugin to lighgallery group which are
                     matching selector:
                 </div>
                 <Input
-                    style={{marginTop: 10, width: 340}} value={this.state.settings.querySelector}
-                    onChange={this.onChange.bind(this, 'querySelector')}
+                    style={{marginTop: 10, width: 340}} value={this.state.settings.groupQuerySelector}
+                    onChange={this.onChange.bind(this, 'groupQuerySelector')}
+                />
+                <div style={{fontSize: 13, color: "#6E778A", marginTop: 21}}>Apply this plugin to lighgallery album which are
+                    matching selector:
+                </div>
+                <Input
+                    style={{marginTop: 10, width: 340}} value={this.state.settings.albumQuerySelector}
+                    onChange={this.onChange.bind(this, 'albumQuerySelector')}
                 />
                 <div style={{marginTop: 30}}>
-                    <div style={{fontSize: 13, color: "#6E778A", marginTop: 21}}>Apply this plugin to elements which are
+                    <div style={{fontSize: 13, color: "#6E778A", marginTop: 21}}>Apply this plugin to lighgallery item which are
                         matching selector:
                     </div>
                     <Input
@@ -52,6 +57,7 @@ export default class ImageSettings extends Component {
         const value = e.target.value;
         let settings = this.state.settings;
         settings[propertyName] = value;
+        settings.querySelector = `${settings.groupQuerySelector}, ${settings.albumQuerySelector}, ${settings.childQuerySelector}`;
         this.setState({
             settings
         })
