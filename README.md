@@ -1,4 +1,4 @@
-# novi-plugin-owl-carousel
+# novi-plugin-light-gallery
 Novi Builder Plugin for visual [jQuery lightgallery](http://sachinchoolur.github.io/lightGallery/) customization
 
 ## How to Install
