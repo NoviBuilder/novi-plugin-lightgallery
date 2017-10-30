@@ -5,17 +5,16 @@ import Body from "./Body";
 const lodash = novi.utils.lodash;
 
 const EditorItem = {
-    trigger: Icons.ICON_FACE_SAD,
+    trigger: Icons.ICON_PICTURES,
     tooltip: "Album Settings",
     closeIcon: "submit",
     title: "Album Settings",
     excerpt: ExcerptFunction.validAlbum,
     body: [<Body/>],
-    header: [Icons.ICON_FACE_SAD, <span>Album Settings</span>],
+    header: [Icons.ICON_PICTURES, <span>Album Settings</span>],
     onSubmit: onClick,
     width: 508,
-    height: 300,
-    collapsed: true
+    height: 300
 };
 
 export default EditorItem;
