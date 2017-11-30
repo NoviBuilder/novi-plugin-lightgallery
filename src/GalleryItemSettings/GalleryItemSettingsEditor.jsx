@@ -4,7 +4,7 @@ const Icon = novi.ui.icon;
 const lodash = novi.utils.lodash;
 import Body from "./Body";
 import * as ExcerptFunction from "../ExcerptFunction";
-
+const messages = novi.language.getDataByKey("novi-plugin-light-gallery");
 const EditorItem = {
     trigger: <Icon>{<svg viewBox="0 0 20 20">
 <path d="M13.5,9C12.1,9,11,7.9,11,6.5S12.1,4,13.5,4S16,5.1,16,6.5S14.9,9,13.5,9z M13.5,5C12.7,5,12,5.7,12,6.5S12.7,8,13.5,8
@@ -53,11 +53,11 @@ const EditorItem = {
 	C5.9,1.1,5.7,1.3,5.6,1.5C5.3,1.7,4.9,1.9,4.5,1.9S3.7,1.7,3.4,1.5C3.2,1.3,3.1,1.1,3,0.9C2.8,1,2.5,1.2,2.3,1.4
 	C2.4,1.5,2.5,1.7,2.6,2c0.1,0.4,0,0.8-0.2,1.1C2.1,3.6,1.5,3.9,1,3.9c0,0-0.1,0-0.1,0c0,0.1,0,0.3,0,0.4s0,0.3,0,0.4
 	c0,0,0.1,0,0.1,0c0.6,0,1.1,0.3,1.4,0.8c0.2,0.3,0.3,0.7,0.2,1.1C2.5,6.9,2.4,7.1,2.3,7.3L2.3,7.3z"/>
-    </svg>}</Icon>, <span>Gallery Item</span>],
+    </svg>}</Icon>, <span>{messages.editor.item.header}</span>],
     body: [<Body/>],
-    tooltip: "Edit Gallery Item",
+    tooltip: messages.editor.item.tooltip,
     closeIcon: "submit",
-    title: "Edit Gallery Item",
+    title: messages.editor.item.title,
     width: 400,
     height: 240,
     onSubmit: onSubmitClick,

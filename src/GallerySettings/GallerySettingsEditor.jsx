@@ -3,7 +3,7 @@ const Icons = novi.ui.icons;
 const lodash = novi.utils.lodash;
 import * as ExcerptFunction from "../ExcerptFunction";
 import Body from "./Body";
-
+const messages = novi.language.getDataByKey("novi-plugin-light-gallery");
 const EditorItem = {
     trigger: <svg viewBox="0 0 20 20">
         <path d="M16.7,19H1.5l0,0C1,19,1,18.5,1,18.5V4.6H0v13.8C0,19.3,0.7,20,1.5,20h15.2"/>
@@ -28,9 +28,9 @@ const EditorItem = {
 	c0.1,0.1,0.2,0.3,0.3,0.6c0.1,0.4,0,0.8-0.2,1.1c-0.3,0.5-0.9,0.8-1.4,0.8h-0.1c0,0.1,0,0.3,0,0.4s0,0.3,0,0.4H12
 	c0.6,0,1.1,0.3,1.4,0.8c0.2,0.3,0.3,0.7,0.2,1.1C13.5,7.6,13.4,7.8,13.3,8L13.3,8z"/>
     </svg>,
-    tooltip: "Gallery Settings",
+    tooltip: messages.editor.group.tooltip,
     closeIcon: "submit",
-    title: "Gallery Settings",
+    title: messages.editor.group.title,
     body: [<Body/>],
     header: [<svg viewBox="0 0 20 20">
         <path d="M16.7,19H1.5l0,0C1,19,1,18.5,1,18.5V4.6H0v13.8C0,19.3,0.7,20,1.5,20h15.2"/>
@@ -54,9 +54,9 @@ const EditorItem = {
 	c-0.1,0.2-0.3,0.4-0.4,0.6c-0.3,0.2-0.7,0.4-1.1,0.4s-0.8-0.2-1.1-0.4C14.2,2,14.1,1.8,14,1.6c-0.2,0.1-0.5,0.3-0.7,0.5
 	c0.1,0.1,0.2,0.3,0.3,0.6c0.1,0.4,0,0.8-0.2,1.1c-0.3,0.5-0.9,0.8-1.4,0.8h-0.1c0,0.1,0,0.3,0,0.4s0,0.3,0,0.4H12
 	c0.6,0,1.1,0.3,1.4,0.8c0.2,0.3,0.3,0.7,0.2,1.1C13.5,7.6,13.4,7.8,13.3,8L13.3,8z"/>
-    </svg>, <span>Gallery Settings</span>],
+    </svg>, <span>{messages.editor.group.header}</span>],
     onSubmit: onClick,
-    width: 360,
+    width: 400,
     excerpt: ExcerptFunction.validGallery,
     height: 180
 };

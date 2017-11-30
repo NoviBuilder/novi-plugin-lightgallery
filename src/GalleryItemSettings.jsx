@@ -9,7 +9,7 @@ const Icon = novi.ui.icon;
 const Types = novi.types;
 const axios = novi.utils.axios;
 const Link = novi.ui.link;
-
+const Language = novi.language;
 export default class GalleryItemSettings extends Component {
     constructor(props) {
         super(props);
@@ -93,6 +93,7 @@ export default class GalleryItemSettings extends Component {
                 top: 1px;
             }
         `;
+        this.messages = Language.getDataByKey("novi-plugin-light-gallery");
     }
 
     componentWillReceiveProps(props) {
@@ -119,7 +120,7 @@ export default class GalleryItemSettings extends Component {
 
                 <div className="input-wrap-group">
                     <p className="novi-label" style={{marginTop: 0}}>
-                        Large image\video source:
+                        {this.messages.editor.item.body.src}
                     </p>
 
                     <div className="input-wrap">
@@ -133,7 +134,7 @@ export default class GalleryItemSettings extends Component {
                         </div>
                     </div>
                     <div style={{textAlign: 'right', marginTop:5}}>
-                        <Link type="primary" onClick={this.openMediaLibrary}> Choose from Media Library </Link>
+                        <Link type="primary" onClick={this.openMediaLibrary}>{this.messages.editor.item.body.openLibrary}</Link>
                     </div>
                 </div>
 
@@ -142,7 +143,7 @@ export default class GalleryItemSettings extends Component {
 
 
                 <p className="novi-label" style={{marginTop: 10}}>
-                    Item Description (HTML markup is supported):
+                    {this.messages.editor.item.body.description}
                 </p>
                 <CodeEditor mode={"html"} onInit={this.onCodeEditorInit}/>
                 {this._renderReturnButton()}
@@ -267,7 +268,7 @@ export default class GalleryItemSettings extends Component {
                     <path d="M0.646 10.146l6-6c0.195-0.195 0.512-0.195 0.707 0s0.195 0.512 0 0.707l-5.146 5.146h16.293c0.276 0 0.5 0.224 0.5 0.5s-0.224 0.5-0.5 0.5h-16.293l5.146 5.146c0.195 0.195 0.195 0.512 0 0.707-0.098 0.098-0.226 0.146-0.354 0.146s-0.256-0.049-0.354-0.146l-6-6c-0.195-0.195-0.195-0.512 0-0.707z" stroke="#109DF7" strokeWidth="2"/>
                 </svg>
                 <Link type="primary" onClick={this.onBackClick}>
-                    Back to album
+                    {this.messages.editor.item.body.backToAlbum}
                 </Link>
             </div>
         )
@@ -285,7 +286,7 @@ export default class GalleryItemSettings extends Component {
         return(
             <div className="input-wrap-group" style={{marginTop: 10}}>
                 <p className="novi-label" style={{marginTop: 0}}>
-                    Thumbnail image source:
+                    {this.messages.editor.item.body.thumb}
                 </p>
 
                 <div className={thumbInputDisabled}>
@@ -299,7 +300,7 @@ export default class GalleryItemSettings extends Component {
                     </div>
                 </div>
                 <div style={{textAlign: 'right', marginTop:5}}>
-                    <Link type="primary" onClick={this.openThumbMediaLibrary}> Choose from Media Library </Link>
+                    <Link type="primary" onClick={this.openThumbMediaLibrary}>{this.messages.editor.item.body.openLibrary}</Link>
                 </div>
             </div>
         )

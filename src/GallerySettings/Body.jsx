@@ -3,7 +3,7 @@ const React = novi.react.React;
 const Component = novi.react.Component;
 const Switcher = novi.ui.switcher;
 const Select = novi.ui.select;
-
+const Language = novi.language;
 export default class Body extends Component {
     constructor(props) {
         super(props);
@@ -45,12 +45,27 @@ export default class Body extends Component {
             -webkit-transition: 0.1s all cubic-bezier(0.4, 0, 1, 1); 
             transition: 0.1s all cubic-bezier(0.4, 0, 1, 1);
             backface-visibility: hidden;
+            
+        }
+        .lightgallery-group > .lightgallery-group-switcher{
+        max-width: 33%;
         }
         .lightgallery-group-switcher.disabled{
                 opacity: 0;
                 visibility: hidden;
                 height: 0;
                 margin-top: 0;
+        }
+        .lightgallery-group-switcher + .lightgallery-group-switcher{
+            margin-left: 10px;
+        }
+        .lightgallery-group-switcher .novi-label{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .lightgallery-group-switcher .novi-switcher{
+            flex-shrink: 0;
         }
         .lightgallery-group-switcher .novi-input{
             width: 55px;
@@ -98,6 +113,7 @@ export default class Body extends Component {
         this._handleAutoplayChange = this._handleAutoplayChange.bind(this);
         this._handleAnimationChange = this._handleAnimationChange.bind(this);
         this._renderAutoplayDelay = this._renderAutoplayDelay.bind(this);
+        this.messages = Language.getDataByKey("novi-plugin-light-gallery");
     }
 
     render() {
@@ -112,27 +128,27 @@ export default class Body extends Component {
                 }}>
                 <style>{this.style}</style>
                 <p className="novi-label" style={{"marginTop": "0"}}>
-                    Gallery slide animation:
+                    {this.messages.editor.group.body.animation}
                 </p>
                 <Select searchable={false} options={this.animations} value={this.state.animation} onChange={this._handleAnimationChange}/>
                 <div className="lightgallery-group">
                     <div className="lightgallery-group-switcher">
-                        <p className="novi-label" style={{"margin": 0, "paddingRight": "5px"}}>
-                            Thumbnails:
+                        <p className="novi-label" style={{"margin": 0, "paddingRight": "4px"}}>
+                            {this.messages.editor.group.body.thumbnails}
                         </p>
                         <Switcher isActive={this.state.thumbnail} onChange={this._handleSwitcherChange.bind(this, "thumbnail")}/>
                     </div>
 
                     <div className="lightgallery-group-switcher">
-                        <p className="novi-label" style={{"margin": 0, "paddingRight": "5px"}}>
-                            Loop:
+                        <p className="novi-label" style={{"margin": 0, "paddingRight": "4px"}}>
+                            {this.messages.editor.group.body.loop}
                         </p>
                         <Switcher isActive={this.state.loop} onChange={this._handleSwitcherChange.bind(this, "loop")}/>
                     </div>
 
                     <div className="lightgallery-group-switcher">
-                        <p className="novi-label" style={{"margin": 0, "paddingRight": "5px"}}>
-                            Autoplay:
+                        <p className="novi-label" style={{"margin": 0, "paddingRight": "4px"}}>
+                            {this.messages.editor.group.body.autoplay}
                         </p>
                         <Switcher isActive={this.state.autoplay} onChange={this._handleSwitcherChange.bind(this, "autoplay")}/>
 
@@ -175,7 +191,7 @@ export default class Body extends Component {
         return (
             <div className={switcherClass}>
                 <p className="novi-label" style={{"margin": 0}}>
-                    Gallery Autoplay Delay, seconds
+                    {this.messages.editor.group.body.autoplayDelay}
                 </p>
                 <div style={{"width": "80px"}}>
                     <InputNumber onChange={this._handleAutoplayChange} value={this.state.autoplayTime} min={0} />

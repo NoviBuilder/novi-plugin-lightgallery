@@ -3,7 +3,7 @@ const Component = novi.react.Component;
 const Link = novi.ui.link;
 import * as Utils from "../Utils";
 import GalleryItemSettings from "../GalleryItemSettings";
-
+const Language = novi.language;
 export default class Body extends Component {
     constructor(props) {
         super(props);
@@ -146,6 +146,7 @@ export default class Body extends Component {
         `;
         this._renderGalleryItems = this._renderGalleryItems.bind(this);
         this._onItemAdd = this._onItemAdd.bind(this);
+        this.messages = Language.getDataByKey("novi-plugin-light-gallery");
     }
 
     render() {
@@ -164,7 +165,7 @@ export default class Body extends Component {
                         </div>
                     </div>
                     <div className="lightgallery-album-add-item">
-                        <Link type="primary" onClick={this._onItemAdd}>Add gallery item</Link>
+                        <Link type="primary" onClick={this._onItemAdd}>{this.messages.editor.album.body.addItem}</Link>
                     </div>
                 </div>
 
@@ -451,6 +452,4 @@ export default class Body extends Component {
             }
         }
     }
-
-
 }
