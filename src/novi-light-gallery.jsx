@@ -28,13 +28,13 @@ function onLanguageChange(plugin){
     let messages = Language.getDataByKey("novi-plugin-light-gallery");
     plugin.ui.editor[2].title = messages.editor.group.title;
     plugin.ui.editor[2].tooltip = messages.editor.group.tooltip;
-    plugin.ui.editor[2].header = <span>{messages.editor.group.header}</span>;
+    plugin.ui.editor[2].header[1] = <span>{messages.editor.group.header}</span>;
     plugin.ui.editor[1].title = messages.editor.item.title;
     plugin.ui.editor[1].tooltip = messages.editor.item.tooltip;
-    plugin.ui.editor[1].header = <span>{messages.editor.item.header}</span>;
+    plugin.ui.editor[1].header[1] = <span>{messages.editor.item.header}</span>;
     plugin.ui.editor[0].title = messages.editor.album.title;
     plugin.ui.editor[0].tooltip = messages.editor.album.tooltip;
-    plugin.ui.editor[0].header = <span>{messages.editor.album.header}</span>;
+    plugin.ui.editor[0].header[1] = <span>{messages.editor.album.header}</span>;
     return plugin;
 }
 novi.plugins.register(Plugin);
