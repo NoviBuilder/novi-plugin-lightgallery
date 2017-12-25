@@ -51,18 +51,18 @@ Add basic jQuery lightgallery HTML Layout.
 ##### For album
 ```html
 <div data-lightgallery="dynamic"
-     data-lg-dynamic-elements="
+     data-lg-dynamic-elements='
      [{
-         'subHtml':'<p>lorem ipsum</p>',
-         'thumb':'path/to/thumb/image',
-         'src':'path/to/original/image'
+         "subHtml":"<p>lorem ipsum</p>",
+         "thumb":"path/to/thumb/image",
+         "src":"path/to/original/image"
      },
       ...
      {
-         'subHtml':'id or class to caption',
-         'thumb':'path/to/thumb/image',
-         'html':'id or class to video'
-     }]">
+         "subHtml":"id or class to caption",
+         "thumb":"path/to/thumb/image",
+         "html":"id or class to video"
+     }]'>
     Open album
 </div>
 ```
