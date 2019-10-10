@@ -8,7 +8,7 @@ const Plugin = {
     name: "novi-plugin-light-gallery",
     title: "Novi Light Gallery",
     description: "Novi Light Gallery description",
-    version: "1.0.1",
+    version: "1.0.2",
     dependencies: {
         novi: "0.8.6"
     },

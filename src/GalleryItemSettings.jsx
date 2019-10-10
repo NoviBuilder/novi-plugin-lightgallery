@@ -47,6 +47,7 @@ export default class GalleryItemSettings extends Component {
         this.style = `
             .lg-item-wrap .code-editor{
                 height: 100px;
+                min-height: 100px;
             }
             .lg-item-wrap .link-primary{
                 display: inline-block;
